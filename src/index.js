@@ -1,5 +1,6 @@
 import { fetchBreeds, fetchCatByBreed } from './js/cat-api';
 import { refs } from './js/refs';
+
 creatEL();
 
 // Створив опції в селекті

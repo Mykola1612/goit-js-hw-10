@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { refs } from './refs';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.headers.common['x-api-key'] =
   'live_RKbeG352oEL0N2icd3CFQ3bfAOlf6sEwaxX9zfp5LlVuPlR9gp1XK6EPICqMVy8C';
@@ -15,7 +16,8 @@ export async function fetchBreeds() {
     refs.loader.classList.add('loader_active');
     return data;
   } catch (error) {
-    refs.error.classList.add('error_active');
+    Notify.failure('Oops! Something went wrong! Try reloading the page!');
+
     refs.loader.classList.add('loader_active');
   }
 }
@@ -41,7 +43,7 @@ export async function fetchCatByBreed(breedId) {
       name: name,
     };
   } catch (error) {
+    Notify.failure('Oops! Something went wrong! Try reloading the page!');
     refs.loader.classList.add('loader_active');
-    refs.error.classList.add('error_active');
   }
 }
